@@ -37,13 +37,12 @@
     color:var(--ink);
     margin:0;
   }
-  a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;}
+  p{margin:0 0 1rem;}
+  img{max-width:100%; display:block;}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent;}
   a:hover{border-bottom-color:var(--accent);}
   a:focus-visible, button:focus-visible{outline:2px solid var(--accent-warm); outline-offset:3px; border-radius:3px;}
-  .skip-link{
-    position:absolute; left:-999px; top:0;
-    background:var(--ink); color:#fff; padding:.6rem 1rem; z-index:100;
-  }
+  .skip-link{position:absolute; left:-999px; top:0; background:var(--ink); color:#fff; padding:.6rem 1rem; z-index:100;}
   .skip-link:focus{left:0;}
 
   .eyebrow{
@@ -56,79 +55,44 @@
   }
 
   /* ---------- Header / nav ---------- */
-  .site-header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(27,35,64,.94);
-    backdrop-filter:blur(6px);
-  }
-  .nav{
-    max-width:var(--max); margin:0 auto; padding:.85rem 1.5rem;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .brand{
-    color:#F6F5F1; font-family:'Fraunces',serif; font-weight:600;
-    font-size:1.05rem; border-bottom:none;
-  }
+  .site-header{position:sticky; top:0; z-index:50; background:rgba(27,35,64,.94); backdrop-filter:blur(6px);}
+  .nav{max-width:var(--max); margin:0 auto; padding:.85rem 1.5rem; display:flex; align-items:center; justify-content:space-between;}
+  .brand{color:#F6F5F1; font-family:'Fraunces',serif; font-weight:600; font-size:1.05rem; border-bottom:none;}
   .brand:hover{border-bottom:none; opacity:.85;}
-  .nav-links{
-    list-style:none; display:flex; gap:1.8rem; margin:0; padding:0;
-  }
-  .nav-links a{
-    color:#D9D9E4; font-size:.92rem; font-weight:500; border-bottom:none;
-  }
+  .nav-links{list-style:none; display:flex; gap:1.8rem; margin:0; padding:0;}
+  .nav-links a{color:#D9D9E4; font-size:.92rem; font-weight:500; border-bottom:none; padding-bottom:.2rem;}
   .nav-links a:hover{color:#fff;}
-  .nav-toggle{
-    display:none; background:none; border:none; width:34px; height:26px;
-    position:relative; cursor:pointer;
-  }
-  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
-    content:''; position:absolute; left:0; width:100%; height:2px; background:#F6F5F1;
-  }
+  .nav-links a.active{color:#fff; border-bottom:2px solid var(--accent-warm);}
+  .nav-toggle{display:none; background:none; border:none; width:34px; height:26px; position:relative; cursor:pointer;}
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{content:''; position:absolute; left:0; width:100%; height:2px; background:#F6F5F1;}
   .nav-toggle span{top:12px;}
   .nav-toggle span::before{top:-8px;}
   .nav-toggle span::after{top:8px;}
-
   @media (max-width:760px){
     .nav-toggle{display:block;}
-    .nav-links{
-      position:absolute; top:100%; left:0; right:0;
-      flex-direction:column; background:#1B2340; padding:1rem 1.5rem 1.5rem;
-      display:none; gap:1rem;
-    }
+    .nav-links{position:absolute; top:100%; left:0; right:0; flex-direction:column; background:#1B2340; padding:1rem 1.5rem 1.5rem; display:none; gap:1rem;}
     .nav-links.open{display:flex;}
   }
 
-  /* ---------- Hero ---------- */
+  /* ---------- Home hero ---------- */
   .hero{background:var(--ink); color:#EDEBE3; padding:4.5rem 1.5rem 3.5rem;}
-  .hero-inner{
-    max-width:var(--max); margin:0 auto;
-    display:grid; grid-template-columns:1.15fr .85fr; gap:3rem; align-items:center;
-  }
+  .hero-inner{max-width:var(--max); margin:0 auto; display:grid; grid-template-columns:1.15fr .85fr; gap:3rem; align-items:center;}
   .hero h1{color:#fff; font-size:2.9rem; line-height:1.08; margin:.3rem 0 1rem;}
   .hero-role{color:#C7C7D6; max-width:36ch; margin:0 0 1.6rem;}
-  .hero-links .btn{
-    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:.85rem;
-    padding:.65rem 1.1rem; border:1px solid #5A6089; border-radius:8px;
-    color:#EDEBE3;
-  }
+  .hero-links .btn{display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:.85rem; padding:.65rem 1.1rem; border:1px solid #5A6089; border-radius:8px; color:#EDEBE3;}
   .hero-links .btn:hover{border-color:var(--accent-warm); color:#fff; border-bottom:1px solid var(--accent-warm);}
   .hero-figure{display:flex; flex-direction:column; align-items:center; gap:.8rem;}
-  #mfpt-canvas{
-    width:100%; max-width:320px; aspect-ratio:1/1;
-    border-radius:50%; background:radial-gradient(circle at 35% 30%, #232C50, #171D38);
+  .hero-caption{font-size:.78rem; color:#9CA0BE; text-align:center; max-width:26ch; margin:0; font-family:'IBM Plex Mono',monospace;}
+  canvas.illustration{
+    width:100%; max-width:320px; aspect-ratio:1/1; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #232C50, #171D38);
     border:1px solid #333B63;
   }
-  .hero-caption{
-    font-size:.78rem; color:#9CA0BE; text-align:center; max-width:26ch; margin:0;
-    font-family:'IBM Plex Mono',monospace;
-  }
-
   @media (max-width:760px){
     .hero-inner{grid-template-columns:1fr; text-align:center;}
     .hero h1{font-size:2.2rem;}
     .hero-role{margin-inline:auto;}
     .hero-figure{order:-1;}
-    #mfpt-canvas{max-width:220px;}
   }
 
   main{max-width:var(--max); margin:0 auto; padding:0 1.5rem;}
@@ -137,30 +101,21 @@
   .band > .band-pad{padding:3rem 2rem;}
 
   /* ---------- About ---------- */
-  .about-grid{
-    display:grid; grid-template-columns:.85fr 1.15fr; gap:2.5rem; align-items:start; margin-top:1.2rem;
-  }
-  .about-photo img, .about-figure img{
-    width:100%; border-radius:var(--radius); display:block;
-  }
+  .about-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:2.5rem; align-items:start; margin-top:1.2rem;}
+  .about-photo img, .about-figure img{width:100%; border-radius:var(--radius);}
   .about-figure{margin-top:1.6rem;}
-  .about-figure figcaption{
-    font-size:.85rem; color:var(--ink-soft); margin-top:.6rem; font-family:'IBM Plex Mono',monospace;
-  }
-  @media (max-width:700px){
-    .about-grid{grid-template-columns:1fr;}
-  }
+  .about-figure figcaption{font-size:.85rem; color:var(--ink-soft); margin-top:.6rem; font-family:'IBM Plex Mono',monospace;}
+  @media (max-width:700px){.about-grid{grid-template-columns:1fr;}}
 
-  /* ---------- Research ---------- */
-  .research-copy{max-width:68ch; margin-top:1rem;}
-  .link-arrow::after{content:' →'; }
+  .research-teaser{max-width:68ch; margin-top:1rem;}
+  .link-arrow::after{content:' →';}
+  .page-links{margin-top:1.6rem; display:flex; gap:1rem; flex-wrap:wrap;}
+  .page-links a{font-family:'IBM Plex Mono',monospace; font-size:.85rem; padding:.6rem 1.05rem; border:1px solid var(--line); border-radius:8px; color:var(--ink); border-bottom:none;}
+  .page-links a:hover{border-color:var(--accent); color:var(--accent);}
 
   /* ---------- Teaching ---------- */
   .course-list{margin-top:1.5rem; display:grid; gap:1.2rem;}
-  .course-card{
-    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-    padding:1.5rem 1.6rem;
-  }
+  .course-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:1.5rem 1.6rem;}
   .course-card h3{font-size:1.15rem; margin-bottom:.3rem;}
   .course-card p.topics{margin:.4rem 0 .8rem; color:var(--ink-soft);}
   .course-card ul{margin:.4rem 0 0; padding-left:1.2rem; color:var(--ink-soft);}
@@ -170,28 +125,16 @@
   /* ---------- Timelines (Awards / Events) ---------- */
   .timeline{list-style:none; margin:1.6rem 0 0; padding:0; border-left:2px solid var(--line);}
   .timeline li{position:relative; padding:0 0 1.9rem 1.6rem;}
-  .timeline li::before{
-    content:''; position:absolute; left:-6px; top:.35rem;
-    width:11px; height:11px; border-radius:50%;
-    background:var(--paper-alt); border:2px solid var(--accent);
-  }
+  .timeline li::before{content:''; position:absolute; left:-6px; top:.35rem; width:11px; height:11px; border-radius:50%; background:var(--paper-alt); border:2px solid var(--accent);}
   .band .timeline{border-left-color:#D2CDBd;}
-  .tl-year{
-    display:block; font-family:'IBM Plex Mono',monospace; font-size:.82rem;
-    color:var(--accent); font-weight:500; margin-bottom:.3rem;
-  }
+  .tl-year{display:block; font-family:'IBM Plex Mono',monospace; font-size:.82rem; color:var(--accent); font-weight:500; margin-bottom:.3rem;}
   .tl-content p{margin:.25rem 0 0; color:var(--ink-soft);}
   .tl-content .tl-title{font-weight:600; color:var(--ink);}
 
-  footer{
-    background:var(--ink); color:#9CA0BE; padding:2rem 1.5rem;
-    font-family:'IBM Plex Mono',monospace; font-size:.85rem;
-  }
+  footer{background:var(--ink); color:#9CA0BE; padding:2rem 1.5rem; font-family:'IBM Plex Mono',monospace; font-size:.85rem;}
   footer .inner{max-width:var(--max); margin:0 auto;}
 
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-  }
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
 </style>
 </head>
 <body>
@@ -202,8 +145,8 @@
     <a class="brand" href="#top">Sarafa A. Iyaniwura</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false"><span></span></button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
+      <li><a href="#top" class="active">Home</a></li>
+      <li><a href="research.html">Research</a></li>
       <li><a href="#teaching">Teaching</a></li>
       <li><a href="#awards">Grants &amp; Awards</a></li>
       <li><a href="#events">Events</a></li>
@@ -222,7 +165,7 @@
       </div>
     </div>
     <div class="hero-figure">
-      <canvas id="mfpt-canvas" width="320" height="320" aria-hidden="true"></canvas>
+      <canvas class="illustration" id="mfptCanvas" width="320" height="320" aria-hidden="true"></canvas>
       <p class="hero-caption">A Brownian particle on a reflecting disk, hunted by a rotating absorbing trap.</p>
     </div>
   </div>
@@ -230,12 +173,17 @@
 
 <main id="main">
 
+  <!-- ============ About ============ -->
   <section id="about">
     <p class="eyebrow">About</p>
     <div class="about-grid">
       <div>
         <figure class="about-photo">
           <img src="Sarafa_Photo_2Dec22.jpg" alt="Portrait of Sarafa Iyaniwura">
+        </figure>
+        <figure class="about-figure">
+          <img src="MFPT_Simulation.png" alt="Mean first passage time simulation">
+          <figcaption><strong>Figure:</strong> Mean First Passage time for a Brownian particle on a reflecting disk with a rotating absorbing trap.</figcaption>
         </figure>
       </div>
       <div class="about-copy">
@@ -246,15 +194,20 @@
     </div>
   </section>
 
+  <!-- ============ Research teaser ============ -->
   <section id="research" class="band">
     <div class="band-pad">
       <p class="eyebrow">Research</p>
-      <p class="research-copy">
-        My research focuses on developing data-driven mathematical modelling frameworks for studying biological systems. I use analytical, statistical, computational, and data science techniques in my research. The analytical techniques I use include perturbation theory, asymptotic analysis, dynamical systems theory, bifurcation theory, etc. I inform my models with experimental biological data, clinical data, and public health data. These datasets are used to calibrate my models using techniques such as the Bayesian inference framework, maximum likelihood estimation, least square methods, etc. Click <a class="link-arrow" href="Research.html" target="_blank" rel="noopener">here</a> for more information on the projects I have worked on or currently working on.
+      <p class="research-teaser">
+        I am interested in developing data-driven mathematical modelling frameworks for analyzing biological systems. My current research studies infectious disease dynamics within a host and at the population level. I use ordinary differential equations (ODEs), partial differential equations (PDEs), agent-based models, and statistical and machine-learning models — analyzed with dynamical systems theory, perturbation theory, asymptotic analysis, and biophysical techniques, and solved numerically with finite difference, finite element, and closest point methods.
       </p>
+      <div class="page-links">
+        <a class="link-arrow" href="research.html">See my full research page</a>
+      </div>
     </div>
   </section>
 
+  <!-- ============ Teaching ============ -->
   <section id="teaching">
     <p class="eyebrow">Teaching</p>
     <div class="course-list">
@@ -311,6 +264,7 @@
     </div>
   </section>
 
+  <!-- ============ Grants and Awards ============ -->
   <section id="awards" class="band">
     <div class="band-pad">
       <p class="eyebrow">Grants and Awards</p>
@@ -424,6 +378,7 @@
     </div>
   </section>
 
+  <!-- ============ Events ============ -->
   <section id="events">
     <p class="eyebrow">Some conferences, workshops, and other events I co-organized or participated in</p>
     <ol class="timeline">
@@ -537,7 +492,6 @@
 </footer>
 
 <script>
-  // Mobile nav toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   navToggle.addEventListener('click', () => {
@@ -549,77 +503,39 @@
     navToggle.setAttribute('aria-expanded', 'false');
   }));
 
-  // Hero signature animation: a Brownian particle on a reflecting disk,
-  // pursued by a rotating absorbing arc on the boundary — a live sketch
-  // of the MFPT figure above.
-  const canvas = document.getElementById('mfpt-canvas');
-  const ctx = canvas.getContext('2d');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canvas = document.getElementById('mfptCanvas');
+  const ctx = canvas.getContext('2d');
   const R = canvas.width / 2;
-  let angle = 0.6;                 // trap angular position
-  let px = 0, py = 0;              // particle position, relative to center
+  let angle = 0.6, px = 0, py = 0;
   const trail = [];
 
   function step(){
-    // reflected random walk inside the disk
     px += (Math.random() - 0.5) * 4;
     py += (Math.random() - 0.5) * 4;
     const d = Math.hypot(px, py);
-    if (d > R - 14) {
-      const s = (R - 14) / d;
-      px *= s; py *= s;
-    }
+    if (d > R - 14) { const s = (R - 14) / d; px *= s; py *= s; }
     angle += 0.012;
     trail.push({x: px, y: py});
     if (trail.length > 40) trail.shift();
   }
-
   function draw(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.save();
     ctx.translate(R, R);
-
-    // disk boundary
+    ctx.beginPath(); ctx.arc(0, 0, R - 6, 0, Math.PI * 2);
+    ctx.strokeStyle = '#4A5182'; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.beginPath(); ctx.arc(0, 0, R - 6, angle - 0.35, angle + 0.35);
+    ctx.strokeStyle = '#C97D2E'; ctx.lineWidth = 5; ctx.stroke();
     ctx.beginPath();
-    ctx.arc(0, 0, R - 6, 0, Math.PI * 2);
-    ctx.strokeStyle = '#4A5182';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-
-    // absorbing trap arc
-    ctx.beginPath();
-    ctx.arc(0, 0, R - 6, angle - 0.35, angle + 0.35);
-    ctx.strokeStyle = '#C97D2E';
-    ctx.lineWidth = 5;
-    ctx.stroke();
-
-    // trail
-    ctx.beginPath();
-    trail.forEach((p, i) => {
-      if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
-    });
-    ctx.strokeStyle = 'rgba(63,125,104,0.55)';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-
-    // particle
-    ctx.beginPath();
-    ctx.arc(px, py, 4.5, 0, Math.PI * 2);
-    ctx.fillStyle = '#EDEBE3';
-    ctx.fill();
-
+    trail.forEach((p, i) => { if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y); });
+    ctx.strokeStyle = 'rgba(63,125,104,0.55)'; ctx.lineWidth = 1.5; ctx.stroke();
+    ctx.beginPath(); ctx.arc(px, py, 4.5, 0, Math.PI * 2);
+    ctx.fillStyle = '#EDEBE3'; ctx.fill();
     ctx.restore();
   }
-
-  if (reduceMotion) {
-    draw();
-  } else {
-    (function loop(){
-      step();
-      draw();
-      requestAnimationFrame(loop);
-    })();
-  }
+  if (reduceMotion) { draw(); }
+  else { (function loop(){ step(); draw(); requestAnimationFrame(loop); })(); }
 </script>
 </body>
 </html>
